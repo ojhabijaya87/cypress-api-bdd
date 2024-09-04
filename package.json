@@ -1,0 +1,44 @@
+{
+  "name": "CypressDemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:headless": "cypress run --headless",
+    "lint": "eslint 'cypress/**/*.ts' --fix",
+    "format": "prettier --write 'cypress/**/*.{js,ts,json,md}'",
+    "pretest": "npm run lint && npm run format",
+    "test": "npm run cy:run",
+    "test:allure": "npm run cy:run && allure generate allure-results --clean -o allure-report && allure open",
+    "type-check": "tsc --noEmit",
+    "build": "esbuild --bundle cypress/**/*.ts --outdir=dist",
+    "prepare": "husky install"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "cypress": "^13.13.3",
+    "cypress-real-events": "^1.13.0",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "husky": "^8.0.0",
+    "allure-commandline": "^2.13.8"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "step_definitions": "cypress/support/step_definitions/**/*.{js,ts}"
+  }
+}

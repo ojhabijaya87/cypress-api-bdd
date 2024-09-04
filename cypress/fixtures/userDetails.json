@@ -1,0 +1,13 @@
+{
+    "email": "testuser87@example.com",
+    "password": "Password123",
+    "billingDetails": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "address1": "123 Main St",
+        "city": "New York",
+        "postcode": "10001",
+        "country": "United States",
+        "region": "New York"
+    }
+}
